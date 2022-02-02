@@ -1,0 +1,109 @@
+/* Fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+/* Variables */
+:root {
+    --primary-color: #22254b;
+    --secundary-color: #373b69;
+}
+
+*{
+    box-sizing: border-box; /* Si tengo un contenedor con una medida al agregarle bordes este se añada sin modificar la medida */
+}
+
+body {
+    background-color: var(--primary-color);
+    font-family: 'Roboto' sans-serif;
+    margin: 0;
+}
+
+header {
+    padding: 1rem; /* rem Unidad relativa que equivale al font-size establecido por defecto en el documento HTML (16px) */
+    display: flex;
+    justify-content: space-between; /* El primer item al inicio, el último al final */
+    align-items: center;
+    background-color: var(--secundary-color);
+}
+
+header h2 {
+    color: #FFF;
+}
+
+.search {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    font-family: inherit; /* Permite heredar el valor establecido en la misma propiedad de su elemento padre */
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    color: #FFF;
+}
+
+.search::placeholder { /* Pseudoelementos son un mecanismo para acceder a partes del HTML */
+    color: #7378c5;
+}
+
+.search:focus { /* Pseudoclase es un selector que marca los elementos que están en un estado específico */
+    outline: none;
+    background-color: var(--primary-color);
+}
+
+main {
+    display: flex;
+    flex-wrap: wrap; /* Cuando el ancho del contenido llega al limite del viewport genera un salto de linea */
+    justify-content: space-around; /* Los items tienen el mismo espacio a su alrededor */
+}
+
+.movie{
+    width: 300px;
+    margin: 1rem;
+    background-color: var(--secundary-color);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2); /* box-shadow: Posicion eje x - Posicion eje y - Blur - Color */
+    position: relative; /* El elemento es posicionado de acuerdo al flujo normal del documento, y luego es desplazado con relación a sí mismo */
+    overflow: hidden; /* esconde la barra de scroll en caso de que se genere */
+    border-radius: 3px;
+}
+
+.movie img{
+    width: 100%;
+}
+
+.movie-info {
+    color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+.movie-info h3{
+    margin-top: 0;
+}
+
+.movie-info span{
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold; /* Ancho de la fuente */
+}
+
+.movie-info span.green{
+    color: lightgreen;
+}
+
+.overview{
+    background-color: #fff;
+    padding: 2rem;
+    position: absolute; /* El elemento es removido del flujo normal del documento, sin crearse espacio alguno para el elemento en el esquema de la página */
+    left:0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%; /* Altura maxima del elemento */
+    transform: translateY(100%); /* Transfoma el elemento y lo mueve en el eje Y un 100% */
+    transition: transform 0.3s ease-in; /* Genera una transicion el cual tiene un efecto ease-in al momento de mostrarse */
+}
+
+.movie:hover .overview{ /* Estos estilos se aplican tanto a la clase movie cuado se le hace hover como al overview */
+    transform: translateY(0);
+}

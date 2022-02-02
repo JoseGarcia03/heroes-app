@@ -48,7 +48,7 @@ form.addEventListener('submit', (e)=> {
     const search = document.querySelector('#search').value;
 
     //Usamos un .filter para que nos genere un nuevo array con el resultado de los heroes que correspondan a la busqueda
-    const resultado = data.filter(heroe=> heroe.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+    const resultado = data.filter(heroe=> heroe.superhero.toLocaleLowerCase().includes(search.toLocaleLowerCase()) || heroe.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
 
     //Llamamos a la funcion que pinta en pantalla los heroes pero le pasamos el nuevo array con el resultado de la busqueda
     showHeroes(resultado)
